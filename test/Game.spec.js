@@ -11,19 +11,19 @@ describe("Game.js", () => {
             let testGame = new Game();
             
             it("difficulty should be 'hard'", () => {
-                assert(testGame.difficulty === GameDifficulty.HARD)
+                expect(testGame.difficulty).to.equal(GameDifficulty.HARD);
             });
 
             it("deck should contain 81 cards", () => {
-                 assert(testGame.cardsDeck.length == 81);
+                 expect(testGame.cardsDeck.length).to.equal(81);
             });
 
             it("board should contain 0 cards", () => {
-                assert(testGame.cardsBoard.length == 0);
+                expect(testGame.cardsBoard.length).to.equal(0);
             });
 
             it("matches should be empty", () => {
-                assert(testGame.cardsMatches.length == 0);
+                expect(testGame.cardsMatches.length).to.equal(0);
             });
         });
 
@@ -31,19 +31,19 @@ describe("Game.js", () => {
             let testGame = new Game(GameDifficulty.EASY);
             
             it("difficulty should be 'easy'", () => {
-                assert(testGame.difficulty === GameDifficulty.EASY)
+                expect(testGame.difficulty).to.equal(GameDifficulty.EASY);
             });
 
             it("deck should contain 27 cards", () => {
-                 assert(testGame.cardsDeck.length == 27);
+                 expect(testGame.cardsDeck.length).to.equal(27);
             });
 
             it("board should contain 0 cards", () => {
-                assert(testGame.cardsBoard.length == 0);
+                expect(testGame.cardsBoard.length).to.equal(0);
             });
 
             it("matches should be empty", () => {
-                assert(testGame.cardsMatches.length == 0);
+                expect(testGame.cardsMatches.length).to.equal(0);
             });
         });
 
@@ -51,19 +51,19 @@ describe("Game.js", () => {
             let testGame = new Game(GameDifficulty.MEDIUM);
             
             it("difficulty should be 'medium'", () => {
-                assert(testGame.difficulty === GameDifficulty.MEDIUM)
+                expect(testGame.difficulty).to.equal(GameDifficulty.MEDIUM);
             });
 
             it("deck should contain 81 cards", () => {
-                 assert(testGame.cardsDeck.length == 81);
+                 expect(testGame.cardsDeck.length).to.equal(81);
             });
 
             it("board should contain 0 cards", () => {
-                assert(testGame.cardsBoard.length == 0);
+                expect(testGame.cardsBoard.length).to.equal(0);
             });
 
             it("matches should be empty", () => {
-                assert(testGame.cardsMatches.length == 0);
+                expect(testGame.cardsMatches.length).to.equal(0);
             });
         });
 
@@ -71,19 +71,19 @@ describe("Game.js", () => {
             let testGame = new Game(GameDifficulty.HARD);
             
             it("difficulty should be 'hard'", () => {
-                assert(testGame.difficulty === GameDifficulty.HARD)
+                expect(testGame.difficulty).to.equal(GameDifficulty.HARD);
             });
 
             it("deck should contain 81 cards", () => {
-                 assert(testGame.cardsDeck.length == 81);
+                expect(testGame.cardsDeck.length).to.equal(81);
             });
 
             it("board should contain 0 cards", () => {
-                assert(testGame.cardsBoard.length == 0);
+                expect(testGame.cardsBoard.length).to.equal(0);
             });
 
             it("matches should be empty", () => {
-                assert(testGame.cardsMatches.length == 0);
+                expect(testGame.cardsMatches.length).to.equal(0);
             });
         });
     });
