@@ -4,7 +4,7 @@ const { CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS, CARD_SHAPES } = require('../sr
 const { assert, expect } = require('chai');
 const GameDifficulty = require('../src/model/GameDifficulty');
 const Card = require('../src/model/Card');
-
+const { v4: uuid } = require('uuid');
 describe("Game.js", () => {
     describe("Constructor Tests", () => {
         describe("No difficulty given (hard)", () => {
@@ -329,6 +329,37 @@ describe("Game.js", () => {
             card2.isSelected = true;
             testGame.cardsBoard = [card1, card2, card3];
             expect(testGame.getSelectedCards()).to.deep.equal([card2]);
+        });
+    });
+
+    describe("getCard()", () => {
+        it("Should return undefined if no card with a given id exists in the game", () => {
+            let game = new Game();
+            expect(game.getCard("not an id")).to.be.undefined;
+        });
+
+        it("Should return a card if a matching card is present in the deck.", () => {
+            let game = new Game();
+            let newCard = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.OUTLINE);
+            let id = newCard.id;
+            game.cardsDeck.push(newCard);
+            expect(game.getCard(id)).to.equal(newCard);
+        });
+
+        it("Should return a card if a matching card is present on the board.", () => {
+            let game = new Game();
+            let newCard = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.OUTLINE);
+            let id = newCard.id;
+            game.cardsBoard.push(newCard);
+            expect(game.getCard(id)).to.equal(newCard);
+        });
+
+        it("Should return a card if a matching card is present in the matches.", () => {
+            let game = new Game();
+            let newCard = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.OUTLINE);
+            let id = newCard.id;
+            game.cardsMatches.push([newCard]);
+            expect(game.getCard(id)).to.equal(newCard);
         });
     });
 });

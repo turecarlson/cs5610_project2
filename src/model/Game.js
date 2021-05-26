@@ -9,8 +9,33 @@ class Game {
         this.cardsBoard     = [];
         this.cardsMatches   = [];
     }
+
     getSelectedCards = () => {
         return this.cardsBoard.filter(card => card.isSelected);
+    }
+
+    /**
+     * Returns a card from the game with a given id. Returns undefined if no such card is found.
+     * @param {string} id a unique identifier representing a card
+     */
+    getCard = (id) => {
+        let deckFiltered = this.cardsDeck.filter(card => card.id === id);
+        if(deckFiltered.length == 1) {
+            return deckFiltered[0];
+        }
+
+        let boardFiltered = this.cardsBoard.filter(card => card.id === id);
+        if(boardFiltered.length == 1) {
+            return boardFiltered[0];
+        }
+
+        for(let i = 0; i < this.cardsMatches.length; i++) {
+            for(let j = 0; j < this.cardsMatches[i].length; j++) {
+                if(this.cardsMatches[i][j].id == id) {
+                    return this.cardsMatches[i][j];
+                }
+            }
+        }           
     }
 
     drawCards = (numCards = 3) => { //Defaults to draw 3 cards
