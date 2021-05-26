@@ -275,4 +275,30 @@ describe("Game.js", () => {
             expect(game.processMatch(card1, card2, card3)).to.be.false;
         });
     });
+
+    describe("matchOnBoard()", () => {
+       it("returns true if there is a potential match on the board", () => {
+            let card1 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card2 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card3 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card4 = new Card(CARD_SHAPES.SHAPE_2, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let board = [card4, card1, card2, card3];
+            let game = new Game();
+            game.cardsBoard = board;
+
+            expect(game.matchOnBoard()).to.be.true;
+        });
+        
+        it("returns false if there is no potential match on the board", () => {
+            let card1 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card2 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card3 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.RED, CARD_NUMBERS.TWO, CARD_SHADINGS.SOLID);
+            let card4 = new Card(CARD_SHAPES.SHAPE_2, CARD_COLORS.RED, CARD_NUMBERS.TWO, CARD_SHADINGS.SOLID);
+            let board = [card4, card1, card2, card3];
+            let game = new Game();
+            game.cardsBoard = board;
+
+            expect(game.matchOnBoard()).to.be.false;
+        });
+    });
 });

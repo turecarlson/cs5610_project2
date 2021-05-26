@@ -51,6 +51,24 @@ class Game {
         this.cardsBoard.splice(this.cardsBoard.indexOf(card3), 1);
         return true;
     }
+
+    /**
+     * Returns true if there is a 3-card matched set on the board. false otherwise.
+     */
+    matchOnBoard = () => {
+        for(let i = 0; i < this.cardsBoard.length; i++) {
+            for(let j = i+1; j < this.cardsBoard.length; j++) {
+                for(let k = j+1; k < this.cardsBoard.length; k++) {
+                    if(i != j && j != k && i != k) {
+                        if(this.#checkMatch(this.cardsBoard[i], this.cardsBoard[j], this.cardsBoard[k])) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
     
     #checkMatch = (card1, card2, card3) => {
         return this.#checkShape(card1.shape, card2.shape, card3.shape) 
