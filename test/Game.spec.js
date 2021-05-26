@@ -301,4 +301,25 @@ describe("Game.js", () => {
             expect(game.matchOnBoard()).to.be.false;
         });
     });
+
+    describe("getSelectedCards()", () => {
+        it("should return an empty array if no cards on board are selected", () => {
+            let testGame = new Game();
+            let card1 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card2 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card3 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            testGame.cardsBoard = [card1, card2, card3];
+            expect(testGame.getSelectedCards()).to.deep.equal([]);
+        });
+
+        it("should return an array containing selected card[s]", () => {
+            let testGame = new Game();
+            let card1 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card2 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            let card3 = new Card(CARD_SHAPES.SHAPE_1, CARD_COLORS.BLUE, CARD_NUMBERS.ONE, CARD_SHADINGS.SOLID);
+            card2.isSelected = true;
+            testGame.cardsBoard = [card1, card2, card3];
+            expect(testGame.getSelectedCards()).to.deep.equal([card2]);
+        });
+    });
 });

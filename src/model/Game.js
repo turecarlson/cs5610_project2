@@ -9,6 +9,9 @@ class Game {
         this.cardsBoard     = [];
         this.cardsMatches   = [];
     }
+    getSelectedCards = () => {
+        return this.cardsBoard.filter(card => card.isSelected);
+    }
 
     drawCards = (numCards = 3) => { //Defaults to draw 3 cards
         if(numCards <= 0) {
