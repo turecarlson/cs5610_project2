@@ -1,4 +1,5 @@
-const { expect } = require('chai');
+const { expect, assert } = require('chai');
+const { validate: uuidValidate } = require('uuid');
 const chai = require('chai');
 const Card = require('../src/model/Card');
 const { CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS, CARD_SHAPES } = require('../src/model/CardProperties');
@@ -28,6 +29,10 @@ describe("Card.js", () => {
 
         it("should properly set isSelected", () => {
             expect(testCard.isSelected).to.be.false;
+        });
+
+        it("should properly set id value with a uuid", () => {
+            expect(uuidValidate(testCard.id)).to.be.true;
         });
     });
 });
