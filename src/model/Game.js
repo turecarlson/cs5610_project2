@@ -8,7 +8,6 @@ class Game {
         this.cardsDeck      = this.#initializeDeck();
         this.cardsBoard     = [];
         this.cardsMatches   = [];
-        this.drawCards(12);
     }
 
     drawCards = (numCards = 3) => { //Defaults to draw 3 cards

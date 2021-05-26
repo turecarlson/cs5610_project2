@@ -14,12 +14,12 @@ describe("Game.js", () => {
                 assert(testGame.difficulty === GameDifficulty.HARD)
             });
 
-            it("deck should contain 69 cards", () => {
-                 assert(testGame.cardsDeck.length == 69);
+            it("deck should contain 81 cards", () => {
+                 assert(testGame.cardsDeck.length == 81);
             });
 
-            it("board should contain 12 cards", () => {
-                assert(testGame.cardsBoard.length == 12);
+            it("board should contain 0 cards", () => {
+                assert(testGame.cardsBoard.length == 0);
             });
 
             it("matches should be empty", () => {
@@ -34,12 +34,12 @@ describe("Game.js", () => {
                 assert(testGame.difficulty === GameDifficulty.EASY)
             });
 
-            it("deck should contain 15 cards", () => {
-                 assert(testGame.cardsDeck.length == 15);
+            it("deck should contain 27 cards", () => {
+                 assert(testGame.cardsDeck.length == 27);
             });
 
-            it("board should contain 12 cards", () => {
-                assert(testGame.cardsBoard.length == 12);
+            it("board should contain 0 cards", () => {
+                assert(testGame.cardsBoard.length == 0);
             });
 
             it("matches should be empty", () => {
@@ -54,12 +54,12 @@ describe("Game.js", () => {
                 assert(testGame.difficulty === GameDifficulty.MEDIUM)
             });
 
-            it("deck should contain 69 cards", () => {
-                 assert(testGame.cardsDeck.length == 69);
+            it("deck should contain 81 cards", () => {
+                 assert(testGame.cardsDeck.length == 81);
             });
 
-            it("board should contain 12 cards", () => {
-                assert(testGame.cardsBoard.length == 12);
+            it("board should contain 0 cards", () => {
+                assert(testGame.cardsBoard.length == 0);
             });
 
             it("matches should be empty", () => {
@@ -74,12 +74,12 @@ describe("Game.js", () => {
                 assert(testGame.difficulty === GameDifficulty.HARD)
             });
 
-            it("deck should contain 69 cards", () => {
-                 assert(testGame.cardsDeck.length == 69);
+            it("deck should contain 81 cards", () => {
+                 assert(testGame.cardsDeck.length == 81);
             });
 
-            it("board should contain 12 cards", () => {
-                assert(testGame.cardsBoard.length == 12);
+            it("board should contain 0 cards", () => {
+                assert(testGame.cardsBoard.length == 0);
             });
 
             it("matches should be empty", () => {
@@ -95,39 +95,39 @@ describe("Game.js", () => {
         });
 
         it("no given parameter should defualt to drawing 3 cards.", () => {
-            assert(testGame.cardsDeck.length == 69);
-            assert(testGame.cardsBoard.length == 12);
+            assert(testGame.cardsDeck.length == 81);
+            assert(testGame.cardsBoard.length == 0);
             testGame.drawCards();
-            assert(testGame.cardsDeck.length == 66);
-            assert(testGame.cardsBoard.length == 15);
+            assert(testGame.cardsDeck.length == 78);
+            assert(testGame.cardsBoard.length == 3);
         }); 
 
         it("should draw number of cards based on given parameter.", () => {
-            assert(testGame.cardsDeck.length == 69);
-            assert(testGame.cardsBoard.length == 12);
+            assert(testGame.cardsDeck.length == 81);
+            assert(testGame.cardsBoard.length == 0);
             testGame.drawCards(10);
-            assert(testGame.cardsDeck.length == 59);
-            assert(testGame.cardsBoard.length == 22);
+            assert(testGame.cardsDeck.length == 71);
+            assert(testGame.cardsBoard.length == 10);
         });
 
         it("should throw error if 0 is given as parameter.", () => {
-            assert(testGame.cardsDeck.length == 69);
-            assert(testGame.cardsBoard.length == 12);
+            assert(testGame.cardsDeck.length == 81);
+            assert(testGame.cardsBoard.length == 0);
             let funcCall = () => testGame.drawCards(0);
             expect(funcCall).to.throw("numCards must be > 0. Cannot draw a non-positive number of cards.");
         });
 
         it("should throw error if negative value is given as parameter.", () => {
-            assert(testGame.cardsDeck.length == 69);
-            assert(testGame.cardsBoard.length == 12);
+            assert(testGame.cardsDeck.length == 81);
+            assert(testGame.cardsBoard.length == 0);
             let funcCall = () => testGame.drawCards(-5);
             expect(funcCall).to.throw("numCards must be > 0. Cannot draw a non-positive number of cards.");
         });
 
         it("should not attempt to draw more cards than are in the deck.", () => {
-            assert(testGame.cardsDeck.length == 69);
-            assert(testGame.cardsBoard.length == 12);
-            testGame.drawCards(70);
+            assert(testGame.cardsDeck.length == 81);
+            assert(testGame.cardsBoard.length == 0);
+            testGame.drawCards(90);
             assert(testGame.cardsDeck.length == 0);
             assert(testGame.cardsBoard.length == 81);
         });
