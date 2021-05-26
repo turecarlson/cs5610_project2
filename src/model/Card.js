@@ -4,6 +4,7 @@ class Card {
         this.color      = color;
         this.number     = number;
         this.shading    = shading;
+        this.isSelected = false;
     }
 }
 

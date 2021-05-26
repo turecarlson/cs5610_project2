@@ -25,5 +25,9 @@ describe("Card.js", () => {
         it("should properly set card shading", () => {
             expect(testCard.shading).to.equal(CARD_SHADINGS.STRIPED);
         });
+
+        it("should properly set isSelected", () => {
+            expect(testCard.isSelected).to.be.false;
+        });
     });
 });
