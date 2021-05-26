@@ -185,6 +185,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.true;
+            expect(game.cardsMatches).to.deep.equal([[card1, card2, card3]]);
         });
 
         it("should return true if shape is unique among the 3 cards", () => {
@@ -196,6 +197,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.true;
+            expect(game.cardsMatches).to.deep.equal([[card1, card2, card3]]);
         });
 
         it("should return true if color is unique among the 3 cards", () => {
@@ -207,6 +209,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.true;
+            expect(game.cardsMatches).to.deep.equal([[card1, card2, card3]]);
         });
 
         it("should return true if number is unique among the 3 cards", () => {
@@ -218,6 +221,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.true;
+            expect(game.cardsMatches).to.deep.equal([[card1, card2, card3]]);
         });
 
         it("should return true if shading is unique among the 3 cards", () => {
@@ -229,6 +233,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.true;
+            expect(game.cardsMatches).to.deep.equal([[card1, card2, card3]]);
         });
 
         it("should return false if two cards share shape value", () => {
@@ -240,6 +245,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.false;
+            expect(game.cardsMatches).to.deep.equal([]);
         });
 
         it("should return false if two cards share color value", () => {
@@ -251,6 +257,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.false;
+            expect(game.cardsMatches).to.deep.equal([]);
         });
 
         it("should return false if two cards share number value", () => {
@@ -262,6 +269,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.false;
+            expect(game.cardsMatches).to.deep.equal([]);
         });
 
         it("should return false if two cards share shading value", () => {
@@ -273,6 +281,7 @@ describe("Game.js", () => {
             game.cardsBoard = board;
 
             expect(game.processMatch(card1, card2, card3)).to.be.false;
+            expect(game.cardsMatches).to.deep.equal([]);
         });
     });
 
