@@ -362,4 +362,39 @@ describe("Game.js", () => {
             expect(game.getCard(id)).to.equal(newCard);
         });
     });
+
+    describe("selectCard()", () => {
+        it("should properly select card in game of target id", () => {
+            let game = new Game();
+            game.drawCards(12);
+            let card = game.cardsBoard[0];
+            expect(card.isSelected).to.be.false;
+            game.selectCard(card.id);
+            expect(card.isSelected).to.be.true;
+        });
+
+        it("should throw an errror if no card of the given id exists in the game", () => {
+            let game = new Game();
+            let funCall = () => game.selectCard("not a uuid");
+            expect(funCall).to.throw("No card exists with the given id");
+        });
+    });
+
+    describe("unselectCard()", () => {
+        it("should properly un-select card in game of target id", () => {
+            let game = new Game();
+            game.drawCards(12);
+            let card = game.cardsBoard[0];
+            card.isSelected = true;
+            expect(card.isSelected).to.be.true;
+            game.unselectCard(card.id);
+            expect(card.isSelected).to.be.false;
+        });
+
+        it("should throw an errror if no card of the given id exists in the game", () => {
+            let game = new Game();
+            let funCall = () => game.unselectCard("not a uuid");
+            expect(funCall).to.throw("No card exists with the given id");
+        });
+    });
 });

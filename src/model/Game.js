@@ -104,6 +104,30 @@ class Game {
         }
         return false;
     }
+
+    /**
+     * 'Selects' the card of the given id in the Game. Throws an error if no card of that id exists in the game.
+     * @param {string} id the uuid of the card being selected
+     */
+    selectCard(id) {
+        let card = this.getCard(id);
+        if(card == undefined) {
+            throw new Error("No card exists with the given id");
+        }
+        card.isSelected = true;
+    }
+
+    /**
+     * 'Un-Selects' the card of the given id in the Game. Throws an error if no card of that id exists in the game.
+     * @param {string} id the uuid of the card being un-selected 
+     */
+    unselectCard(id) {
+        let card = this.getCard(id);
+        if(card == undefined) {
+            throw new Error("No card exists with the given id");
+        }
+        card.isSelected = false;
+    }
     
     #checkMatch = (card1, card2, card3) => {
         return this.#checkShape(card1.shape, card2.shape, card3.shape) 
