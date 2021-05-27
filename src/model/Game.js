@@ -10,6 +10,10 @@ class Game {
         this.cardsMatches   = [];
     }
 
+    /**
+     * Returns all cards on the board that have been 'selected'.
+     * @returns an array of Cards on the board that have been 'selected'
+     */
     getSelectedCards = () => {
         return this.cardsBoard.filter(card => card.isSelected);
     }
@@ -38,6 +42,10 @@ class Game {
         }           
     }
 
+    /**
+     * Draws n random cards from the deck, and moves them to the board.
+     * @param {number} numCards number of cards to be drawn. Defaults to 3 if no value provided. 
+     */
     drawCards = (numCards = 3) => { //Defaults to draw 3 cards
         if(numCards <= 0) {
             throw new Error("numCards must be > 0. Cannot draw a non-positive number of cards.");
