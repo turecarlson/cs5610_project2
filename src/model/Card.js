@@ -1,6 +1,6 @@
 const { v4: uuid } = require('uuid');
 
-class Card {
+export default class Card {
     constructor(shape, color, number, shading) {
         this.shape      = shape;
         this.color      = color;
@@ -11,5 +11,3 @@ class Card {
         this.id         = id;
     }
 }
-
-module.exports = Card;

@@ -4,4 +4,4 @@ const GameDifficulty = {
     HARD:   'hard'
 }
 
-module.exports = GameDifficulty;
+export default GameDifficulty;

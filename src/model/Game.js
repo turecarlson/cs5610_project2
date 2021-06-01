@@ -1,6 +1,6 @@
-const Card = require("./Card");
-const { CARD_SHAPES, CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS } = require('./CardProperties');
-const GameDifficulty = require("./GameDifficulty");
+import Card from './Card'
+import { CARD_SHAPES, CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS } from './CardProperties';
+import GameDifficulty from './GameDifficulty';
 
 export default class Game {
     constructor(difficulty = GameDifficulty.HARD) {
@@ -55,6 +55,11 @@ export default class Game {
                 let randomIndex = this.#randomDeckIndex();
                 this.cardsBoard.push(this.cardsDeck[randomIndex]);
                 this.cardsDeck.splice(randomIndex, 1);
+            }
+        }
+        if(this.difficulty === GameDifficulty.MEDIUM) {
+            if(!this.matchOnBoard()) {//TODO: test
+                this.drawCards(1);
             }
         }
     }
