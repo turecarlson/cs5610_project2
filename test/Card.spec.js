@@ -1,8 +1,8 @@
-const { expect, assert } = require('chai');
-const { validate: uuidValidate } = require('uuid');
-const chai = require('chai');
-const Card = require('../src/model/Card');
-const { CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS, CARD_SHAPES } = require('../src/model/CardProperties');
+import { expect, assert } from 'chai';
+import { validate as uuidValidate } from 'uuid';
+import chai from 'chai';
+import Card from '../src/model/Card';
+import { CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS, CARD_SHAPES } from '../src/model/CardProperties';
 
 describe("Card.js", () => {
     describe("Constructor Tests", () => {

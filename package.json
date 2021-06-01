@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha --reporter spec",
+    "test": "mocha --reporter spec --require esm",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "esm": "^3.2.25",
     "mocha": "^8.4.0"
   }
 }

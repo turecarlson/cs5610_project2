@@ -1,17 +1,17 @@
-const chai = require('chai');
-const Game = require('../src/model/Game');
-const { CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS, CARD_SHAPES } = require('../src/model/CardProperties');
-const { assert, expect } = require('chai');
-const GameDifficulty = require('../src/model/GameDifficulty');
-const Card = require('../src/model/Card');
-const { v4: uuid } = require('uuid');
+import chai from 'chai';
+import Game from '../src/model/Game';
+import { CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS, CARD_SHAPES } from '../src/model/CardProperties';
+import { assert, expect } from 'chai';
+import { HARD, EASY, MEDIUM } from '../src/model/GameDifficulty';
+import Card from '../src/model/Card';
+import { v4 as uuid } from 'uuid';
 describe("Game.js", () => {
     describe("Constructor Tests", () => {
         describe("No difficulty given (hard)", () => {
             let testGame = new Game();
             
             it("difficulty should be 'hard'", () => {
-                expect(testGame.difficulty).to.equal(GameDifficulty.HARD);
+                expect(testGame.difficulty).to.equal(HARD);
             });
 
             it("deck should contain 81 cards", () => {
@@ -28,10 +28,10 @@ describe("Game.js", () => {
         });
 
         describe("Easy", () => {
-            let testGame = new Game(GameDifficulty.EASY);
+            let testGame = new Game(EASY);
             
             it("difficulty should be 'easy'", () => {
-                expect(testGame.difficulty).to.equal(GameDifficulty.EASY);
+                expect(testGame.difficulty).to.equal(EASY);
             });
 
             it("deck should contain 27 cards", () => {
@@ -48,10 +48,10 @@ describe("Game.js", () => {
         });
 
         describe("Medium", () => {
-            let testGame = new Game(GameDifficulty.MEDIUM);
+            let testGame = new Game(MEDIUM);
             
             it("difficulty should be 'medium'", () => {
-                expect(testGame.difficulty).to.equal(GameDifficulty.MEDIUM);
+                expect(testGame.difficulty).to.equal(MEDIUM);
             });
 
             it("deck should contain 81 cards", () => {
@@ -68,10 +68,10 @@ describe("Game.js", () => {
         });
 
         describe("Hard", () => {
-            let testGame = new Game(GameDifficulty.HARD);
+            let testGame = new Game(HARD);
             
             it("difficulty should be 'hard'", () => {
-                expect(testGame.difficulty).to.equal(GameDifficulty.HARD);
+                expect(testGame.difficulty).to.equal(HARD);
             });
 
             it("deck should contain 81 cards", () => {

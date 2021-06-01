@@ -2,7 +2,7 @@ const Card = require("./Card");
 const { CARD_SHAPES, CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS } = require('./CardProperties');
 const GameDifficulty = require("./GameDifficulty");
 
-class Game {
+export default class Game {
     constructor(difficulty = GameDifficulty.HARD) {
         this.difficulty     = difficulty;
         this.cardsDeck      = this.#initializeDeck();
@@ -200,5 +200,3 @@ class Game {
         return Math.floor(Math.random() * this.cardsDeck.length);
     }
 }
-
-module.exports = Game;
