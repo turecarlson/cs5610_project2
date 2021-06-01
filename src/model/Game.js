@@ -24,18 +24,18 @@ class Game {
      */
     getCard = (id) => {
         let deckFiltered = this.cardsDeck.filter(card => card.id === id);
-        if(deckFiltered.length == 1) {
+        if(deckFiltered.length === 1) {
             return deckFiltered[0];
         }
 
         let boardFiltered = this.cardsBoard.filter(card => card.id === id);
-        if(boardFiltered.length == 1) {
+        if(boardFiltered.length === 1) {
             return boardFiltered[0];
         }
 
         for(let i = 0; i < this.cardsMatches.length; i++) {
             for(let j = 0; j < this.cardsMatches[i].length; j++) {
-                if(this.cardsMatches[i][j].id == id) {
+                if(this.cardsMatches[i][j].id === id) {
                     return this.cardsMatches[i][j];
                 }
             }
@@ -51,7 +51,7 @@ class Game {
             throw new Error("numCards must be > 0. Cannot draw a non-positive number of cards.");
         }
         for(let i = 0; i < numCards; i++) {
-            if(this.cardsDeck.length != 0) {
+            if(this.cardsDeck.length !== 0) {
                 let randomIndex = this.#randomDeckIndex();
                 this.cardsBoard.push(this.cardsDeck[randomIndex]);
                 this.cardsDeck.splice(randomIndex, 1);
@@ -94,7 +94,7 @@ class Game {
         for(let i = 0; i < this.cardsBoard.length; i++) {
             for(let j = i+1; j < this.cardsBoard.length; j++) {
                 for(let k = j+1; k < this.cardsBoard.length; k++) {
-                    if(i != j && j != k && i != k) {
+                    if(i !== j && j !== k && i !== k) {
                         if(this.#checkMatch(this.cardsBoard[i], this.cardsBoard[j], this.cardsBoard[k])) {
                             return true;
                         }
@@ -111,7 +111,7 @@ class Game {
      */
     selectCard(id) {
         let card = this.getCard(id);
-        if(card == undefined) {
+        if(card === undefined) {
             throw new Error("No card exists with the given id");
         }
         card.isSelected = true;
@@ -123,7 +123,7 @@ class Game {
      */
     unselectCard(id) {
         let card = this.getCard(id);
-        if(card == undefined) {
+        if(card === undefined) {
             throw new Error("No card exists with the given id");
         }
         card.isSelected = false;
@@ -137,23 +137,23 @@ class Game {
     }
     
     #checkShape = (shape1, shape2, shape3) => {
-        return ((shape1 == shape2 && shape2 == shape3) 
-            || (shape1 != shape2 && shape2 != shape3 && shape1 != shape3));
+        return ((shape1 === shape2 && shape2 === shape3) 
+            || (shape1 !== shape2 && shape2 !== shape3 && shape1 !== shape3));
     }
 
     #checkColor = (color1, color2, color3) => {
-        return ((color1 == color2 && color2 == color3) 
-            || (color1 != color2 && color2 != color3 && color1 != color3));
+        return ((color1 === color2 && color2 === color3) 
+            || (color1 !== color2 && color2 !== color3 && color1 !== color3));
     }
 
     #checkNumber = (number1, number2, number3) => {
-        return ((number1 == number2 && number2 == number3) 
-            || (number1 != number2 && number2 != number3 && number1 != number3));
+        return ((number1 === number2 && number2 === number3) 
+            || (number1 !== number2 && number2 !== number3 && number1 !== number3));
     }
 
     #checkShading = (shading1, shading2, shading3) => {
-        return ((shading1 == shading2 && shading2 == shading3) 
-            || (shading1 != shading2 && shading2 != shading3 && shading1 != shading3));
+        return ((shading1 === shading2 && shading2 === shading3) 
+            || (shading1 !== shading2 && shading2 !== shading3 && shading1 !== shading3));
     }
 
     #initializeDeck = () => {
@@ -170,7 +170,7 @@ class Game {
     }
                     
     #initializeDeck_EASY = () => {
-        let deck = new Array();
+        let deck = [];
         Object.keys(CARD_SHAPES).forEach(shape => {
             Object.keys(CARD_COLORS).forEach(color => {
                 Object.keys(CARD_NUMBERS).forEach(number => {
@@ -181,7 +181,7 @@ class Game {
     }
     
     #initializeDeck_MEDIUM = () => {
-        let deck = new Array();
+        let deck = [];
         Object.keys(CARD_SHAPES).forEach(shape => {
             Object.keys(CARD_COLORS).forEach(color => {
                 Object.keys(CARD_NUMBERS).forEach(number => {
