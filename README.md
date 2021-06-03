@@ -1,44 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+Project 2  // CS5610 Spring 2021
 
-## Available Scripts
+Northeastern University // Seattle Campus
 
-In the project directory, you can run:
+Ture Carlson
 
-### `yarn start`
+## Writeup:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* What were some challenges you faced while making this app?
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  * The biggest challenge I faced was familiarizing myself with how and when React/redux re-renders components, and how to force a component to re-render in a scenario that it will not automatically do so. I believe my singular-object approach to the store is likely a factor in some of my frustrations here, as not all of the changes to objects referenced within the 'Game' object, such as changes to a card's properties, force a re-render.
+* Given more time, what additional features, functional or design changes would you make?
 
-### `yarn test`
+  * I would have liked to implement a few more views and components, such as a game-timer, a score-counter of sime kind, and the ability to pull up a visual list of all past matches. I also would have fixed the 'back to game' button on the how-to view, since it doesn't seem to be re-rendering the app properly.
+  * I believe if I had developed/implemented an effective way to force a re-render of the application every time the reducer performed 'return state', this would streamline many of the issues I was facing. I did not have the chance to test and implement fully, but I believe if I had used 'return {...state}', this likely would have resolved many issues with re-render, since state would be a new object entirely, and should then force a re-render. However, I need to look a bit more into if that new object would still be recognized as the same 'Game' object type.
+* What assumptions did you make while working on this assignment?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  * I had initially assumed that I could manage all of my logic and data through redux, however this proved to be an unmanageable approach. Once I moved over to having a custom model object of sorts to interface with, with public methods available for use, this became much more manageable.
+* How long did this assignment take to complete?
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+  * I didn't keep track of time specifically on this attempt, but a few hours a day for about a weeks worth of time, and then a few longer sessions on top of that for some serious digging in, mainly on styling.
