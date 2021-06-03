@@ -6,8 +6,6 @@ export default class Game {
     constructor(difficulty = GameDifficulty.HARD) {
         this.difficulty     = difficulty;
         this.cardsDeck      = this.#initializeDeck();
-        // this.allCards       = {};
-        // this.cardsDeck.forEach(card => this.allCards[card.id] = card);
         this.cardsBoard     = [];
         this.cardsMatches   = [];
         this.cardsSelected  = [];
@@ -63,6 +61,7 @@ export default class Game {
         }
         if(this.difficulty === GameDifficulty.MEDIUM) {
             if(!this.matchOnBoard()) {//TODO: test
+                console.log("medium difficulty draw");
                 this.drawCards(1);
             }
         }
@@ -96,6 +95,12 @@ export default class Game {
         this.cardsBoard.splice(this.cardsBoard.indexOf(card1), 1);
         this.cardsBoard.splice(this.cardsBoard.indexOf(card2), 1);
         this.cardsBoard.splice(this.cardsBoard.indexOf(card3), 1);
+        if(this.difficulty === GameDifficulty.MEDIUM) {
+            if(!this.matchOnBoard()) {//TODO: test
+                console.log("medium difficulty draw");
+                this.drawCards(1);
+            }
+        }
         return true;
     }
 
