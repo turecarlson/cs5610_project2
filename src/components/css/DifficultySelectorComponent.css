@@ -1,0 +1,23 @@
+.difficulty-selector {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.difficulty-button {
+    margin: 10px;
+    color: white;
+}
+
+.button-easy {
+    background-color: green;
+}
+
+.button-medium {
+    background-color: orangered;
+}
+
+.button-hard {
+    background-color: crimson;
+}

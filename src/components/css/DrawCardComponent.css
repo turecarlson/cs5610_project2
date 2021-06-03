@@ -1,0 +1,8 @@
+.draw-card {
+    outline: 2px solid blue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: green;
+}

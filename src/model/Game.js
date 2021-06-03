@@ -6,8 +6,11 @@ export default class Game {
     constructor(difficulty = GameDifficulty.HARD) {
         this.difficulty     = difficulty;
         this.cardsDeck      = this.#initializeDeck();
+        // this.allCards       = {};
+        // this.cardsDeck.forEach(card => this.allCards[card.id] = card);
         this.cardsBoard     = [];
         this.cardsMatches   = [];
+        this.cardsSelected  = [];
     }
 
     /**
@@ -16,6 +19,7 @@ export default class Game {
      */
     getSelectedCards = () => {
         return this.cardsBoard.filter(card => card.isSelected);
+        // return this.cardsSelected;
     }
 
     /**
@@ -75,6 +79,9 @@ export default class Game {
     processMatch = (card1, card2, card3) => {
         //confirm match with checkMatch
         if(!this.#checkMatch(card1, card2, card3)) {
+            card1.isSelected = false;
+            card2.isSelected = false;
+            card3.isSelected = false;
             return false;
         };
         //make sure all cards are on board
@@ -120,6 +127,7 @@ export default class Game {
             throw new Error("No card exists with the given id");
         }
         card.isSelected = true;
+        // this.cardsSelected.push(card);
     }
 
     /**
@@ -132,6 +140,7 @@ export default class Game {
             throw new Error("No card exists with the given id");
         }
         card.isSelected = false;
+        // this.cardsSelected = this.cardsSelected.filter(someCard => someCard !== card);
     }
     
     #checkMatch = (card1, card2, card3) => {

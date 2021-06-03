@@ -1,0 +1,13 @@
+.card-normal {
+    outline: 3px solid black;
+    background-color: beige;
+}
+
+.card-selected {
+    background-color: yellow;
+    outline: 4px solid red;
+}
+
+.card:hover {
+    background-color: orange;
+}

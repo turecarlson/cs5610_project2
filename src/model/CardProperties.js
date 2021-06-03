@@ -11,9 +11,9 @@ const CARD_COLORS = {
 };
 
 const CARD_NUMBERS = {
-    ONE:    'ONE',
-    TWO:    'TWO',
-    THREE:  'THREE'
+    ONE:    1,
+    TWO:    2,
+    THREE:  3
 };
 
 const CARD_SHADINGS = {
