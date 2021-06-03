@@ -1,15 +1,12 @@
 import React from 'react';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import './css/HowToPlayComponent.css';
  
-
 class HowToPlayComponent extends React.Component {
     render() {
         return (
             <div className='how-to-play'>
-            <Popup trigger={<button> How to Play</button>} position="right center">
-                <div>
-                    <p>Welcome to Set!</p>
+                    <h1>Welcome to Set!</h1>
                     <p>To play: Select 3 cards to attempt to make a set, or draw 3 more cards from the deck.</p>
                     <p>3 cards make a set if each of their attributes EITHER:</p>
                     <ul>
@@ -37,8 +34,6 @@ class HowToPlayComponent extends React.Component {
                         <li>The 3 attributes listed above</li>
                         <li>Fill Color (Colored/White/Grey)</li>
                     </ul>
-                </div>
-            </Popup>
             </div>
         );
     }

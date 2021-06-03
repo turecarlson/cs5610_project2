@@ -6,8 +6,6 @@ export default function Reducer(state, action) {
          * For Drawing cards from the deck at the start of, and during, a game
          */
         case 'DRAW':
-            console.log(state.cardsDeck.length)
-
             state.drawCards(action.value)
             return state;
         /**
@@ -32,6 +30,18 @@ export default function Reducer(state, action) {
             state = new Game(action.value);
             state.drawCards(12)
             return state;
+        /**
+         * For Restarting the game
+         */
+        case 'RESTART':
+            state = {};
+            return state;
+            /**
+             * For switching between board and how-to-play views
+             */
+        case 'SWITCH-VIEW':
+            state.switchView();
+            return {...state};
         default:
             return state;
     }

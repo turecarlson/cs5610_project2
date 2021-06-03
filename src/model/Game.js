@@ -1,6 +1,7 @@
 import Card from './Card'
 import { CARD_SHAPES, CARD_COLORS, CARD_NUMBERS, CARD_SHADINGS } from './CardProperties';
 import GameDifficulty from './GameDifficulty';
+import GameViews from './GameViews';
 
 export default class Game {
     constructor(difficulty = GameDifficulty.HARD) {
@@ -9,6 +10,19 @@ export default class Game {
         this.cardsBoard     = [];
         this.cardsMatches   = [];
         this.cardsSelected  = [];
+        this.currentView    = GameViews.BOARD;
+    }
+
+    /**
+     * Changes the current view displayed to the user
+     */
+    switchView = () => {
+        if(this.currentView === GameViews.BOARD) {
+            this.currentView = GameViews.HOWTO;
+        } else {
+            this.currentView = GameViews.BOARD;
+        }
+        console.log(this.currentView)
     }
 
     /**
@@ -17,7 +31,6 @@ export default class Game {
      */
     getSelectedCards = () => {
         return this.cardsBoard.filter(card => card.isSelected);
-        // return this.cardsSelected;
     }
 
     /**
@@ -62,7 +75,7 @@ export default class Game {
         if(this.difficulty === GameDifficulty.MEDIUM) {
             if(!this.matchOnBoard()) {//TODO: test
                 console.log("medium difficulty draw");
-                this.drawCards(1);
+                this.drawCards(3);
             }
         }
     }
@@ -132,7 +145,6 @@ export default class Game {
             throw new Error("No card exists with the given id");
         }
         card.isSelected = true;
-        // this.cardsSelected.push(card);
     }
 
     /**
@@ -145,7 +157,6 @@ export default class Game {
             throw new Error("No card exists with the given id");
         }
         card.isSelected = false;
-        // this.cardsSelected = this.cardsSelected.filter(someCard => someCard !== card);
     }
     
     #checkMatch = (card1, card2, card3) => {
