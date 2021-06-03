@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DifficultySelectorComponent from './components/DifficultySelectorComponent';
 import BoardComponent from './components/BoardComponent';
+import HowToPlayComponent from './components/HowToPlayComponent'
 import './App.css';
 class App extends React.Component{
 
@@ -11,6 +12,7 @@ class App extends React.Component{
         <div className="app">
           <h1 className="title">Set!</h1>
           <h2 className="subtitle">by Ture Carlson</h2>
+          <HowToPlayComponent />
           <DifficultySelectorComponent />
         </div>
       );
@@ -20,6 +22,7 @@ class App extends React.Component{
       <div className="app">
         <h1 className="title">Set!</h1>
         <h2 className="subtitle">by Ture Carlson</h2>
+        <HowToPlayComponent />
         <BoardComponent />
       </div>
     )}
