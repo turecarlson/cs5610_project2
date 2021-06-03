@@ -22,7 +22,6 @@ export default class Game {
         } else {
             this.currentView = GameViews.BOARD;
         }
-        console.log(this.currentView)
     }
 
     /**
@@ -108,9 +107,8 @@ export default class Game {
         this.cardsBoard.splice(this.cardsBoard.indexOf(card2), 1);
         this.cardsBoard.splice(this.cardsBoard.indexOf(card3), 1);
         if(this.difficulty === GameDifficulty.MEDIUM) {
-            if(!this.matchOnBoard()) {//TODO: test
-                console.log("medium difficulty draw");
-                this.drawCards(1);
+            if(!(this.matchOnBoard())) {//TODO: test
+                this.drawCards(3);
             }
         }
         return true;

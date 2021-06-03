@@ -10,7 +10,6 @@ import GameViews from './model/GameViews';
 class App extends React.Component{
 
   render() {
-    console.log(this.props.currentView);
     if(this.props.difficulty === undefined) {
       return(
         <div className="app">
@@ -59,7 +58,6 @@ class App extends React.Component{
   #switchView = () => {
     this.props.switchView();
     this.forceUpdate();
-    // setTimeout(() => this.forceUpdate(), 500)
   }
 
 }
