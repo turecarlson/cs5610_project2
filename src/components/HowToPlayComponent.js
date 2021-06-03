@@ -1,5 +1,4 @@
 import React from 'react';
-import 'reactjs-popup/dist/index.css';
 import './css/HowToPlayComponent.css';
  
 class HowToPlayComponent extends React.Component {

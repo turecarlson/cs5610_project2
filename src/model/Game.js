@@ -72,9 +72,8 @@ export default class Game {
                 this.cardsDeck.splice(randomIndex, 1);
             }
         }
-        if(this.difficulty === GameDifficulty.MEDIUM) {
-            if(!this.matchOnBoard()) {//TODO: test
-                console.log("medium difficulty draw");
+        if(this.difficulty === 'medium') {
+            if(!(this.matchOnBoard())) {//TODO: test
                 this.drawCards(3);
             }
         }
@@ -122,8 +121,8 @@ export default class Game {
      */
     matchOnBoard = () => {
         for(let i = 0; i < this.cardsBoard.length; i++) {
-            for(let j = i+1; j < this.cardsBoard.length; j++) {
-                for(let k = j+1; k < this.cardsBoard.length; k++) {
+            for(let j = 0; j < this.cardsBoard.length; j++) {
+                for(let k = 0; k < this.cardsBoard.length; k++) {
                     if(i !== j && j !== k && i !== k) {
                         if(this.#checkMatch(this.cardsBoard[i], this.cardsBoard[j], this.cardsBoard[k])) {
                             return true;
